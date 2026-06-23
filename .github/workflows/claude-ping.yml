@@ -1,22 +1,24 @@
+name: Claude Ping
+
 on:
   schedule:
-    - cron: '0 5 * * 1-5'
+    - cron: '0 5 * * 1-5'  # 7:00 CEST (UTC+2), Mon-Fri
 
 jobs:
   ping:
     runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Send Claude ping
-        run: |
-          curl -s -o /dev/null https://api.anthropic.com/v1/messages \
-            -H "x-api-key: ${{ secrets.ANTHROPIC_API_KEY }}" \
-            -H "anthropic-version: 2023-06-01" \
-            -H "content-type: application/json" \
-            -d '{"model":"claude-haiku-4-5-20251001","max_tokens":1,"messages":[{"role":"user","content":"hi"}]}'
 
-      - name: Keep repo active
+      - name: ⚙️ Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: 🔥 Ping Claude
+        run: echo "Respond with exactly: ok" | claude --print 2>/dev/null
+
+      - name: 🌱 Keep repo active
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
