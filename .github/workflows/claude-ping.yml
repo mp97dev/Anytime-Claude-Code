@@ -17,7 +17,7 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: 🔥 Ping Claude
-        run: echo "Respond with exactly: ok" | claude --print
+        run: echo "Respond with exactly: ok" | claude -p --model haiku --safe-mode --bare
 
       - name: 🌱 Keep repo active
         run: |
