@@ -13,13 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: ⚙️ Install Claude Code
+      - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: 🔥 Ping Claude
-        run: claude -p "Respond exactly with: ok" --model haiku --safe-mode --bare
+      - name: Ping Claude
+        run: |
+          claude -p "Respond exactly with: ok" --model haiku --safe-mode --bare
 
-      - name: 🌱 Keep repo active
+      - name: Keep repo active
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
