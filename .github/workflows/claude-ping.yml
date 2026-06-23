@@ -1,7 +1,7 @@
 name: Claude Ping
 
-on:
-  workflow_dispatch:  # enables manual run
+on: 
+  commit:
   schedule:
     - cron: '0 5 * * 1-5'  # 7:00 CEST (UTC+2), Mon-Fri
 
@@ -17,7 +17,7 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: 🔥 Ping Claude
-        run: echo "Respond with exactly: ok" | claude -p --model haiku --safe-mode --bare
+        run: claude -p "Respond exactly with: ok" --model haiku --safe-mode --bare
 
       - name: 🌱 Keep repo active
         run: |
