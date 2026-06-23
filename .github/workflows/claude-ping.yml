@@ -1,7 +1,6 @@
 name: Claude Ping
 
 on: 
-  push:
   schedule:
     - cron: '0 5 * * 1-5'  # 7:00 CEST (UTC+2), Mon-Fri
 
