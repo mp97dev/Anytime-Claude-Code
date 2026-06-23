@@ -1,6 +1,7 @@
 name: Claude Ping
 
 on:
+  workflow_dispatch:  # enables manual run
   schedule:
     - cron: '0 5 * * 1-5'  # 7:00 CEST (UTC+2), Mon-Fri
 
