@@ -18,7 +18,8 @@ A GitHub Action that pokes Claude Code at 7am so the 5h usage reset happens befo
 3. Add it as a GitHub secret:
    `Settings → Secrets and variables → Actions → New repository secret`
    Name it `ANTHROPIC_API_KEY`
-4. Push and forget
+4. Enable write permissions: `Settings → Actions → General → Workflow permissions → Read and write permissions`
+5. Push and forget
 
 > Claude Code uses the `ANTHROPIC_API_KEY` env variable automatically — no OAuth login needed in CI.
 
@@ -38,6 +39,7 @@ Each ping sends one minimal prompt and forces a one-word reply. Basically free.
 ```
 .github/workflows/claude-ping.yml   # the actual thing
 .last-ping                          # auto-updated, ignore it
+README.md                           # this file
 ```
 
 ---
