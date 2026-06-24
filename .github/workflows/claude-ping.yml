@@ -23,7 +23,7 @@ jobs:
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
-          echo "$(date)" > .last-ping
+          echo "$(TZ=Europe/Rome date)" > .last-ping
           git add .last-ping
-          git commit -m "ping" || true
+          git commit -m "ping $(TZ=Europe/Rome date '+%Y-%m-%d %H:%M:%S %Z')" || true
           git push
