@@ -1,6 +1,7 @@
 name: Claude Ping
 
 on: 
+  pull_request:
   schedule:
     - cron: '0 5 * * 1-5'  # 7:00 CEST (UTC+2), Mon-Fri
 
@@ -20,7 +21,7 @@ jobs:
 
       - name: Ping Claude
         run: |
-          claude -p "Respond exactly with: ok" --model haiku # --safe-mode --bare
+          claude -p "Respond exactly with: ok" --model haiku --bare
 
       - name: Keep repo active
         run: |
