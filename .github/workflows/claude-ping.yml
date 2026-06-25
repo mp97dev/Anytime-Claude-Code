@@ -22,7 +22,7 @@ jobs:
 
       - name: Ping Claude
         run: |
-          claude -p "Respond exactly with: ok" --model haiku --bare
+          claude -p "Respond exactly with: ok" --model haiku
 
       - name: Keep repo active
         run: |
