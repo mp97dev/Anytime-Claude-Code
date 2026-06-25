@@ -1,6 +1,7 @@
 name: Claude Ping
 
 on: 
+  pull_request:
   schedule:
     - cron: '0 5 * * 1-5'  # 7:00 CEST (UTC+2), Mon-Fri
 
@@ -11,6 +12,7 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       CLAUDE_CODE_SIMPLE: 1
       CLAUDE_CODE_ATTRIBUTION_HEADER: 0
+      CLAUDE_CODE_DISABLE_TERMINAL_TITLE: 1
 
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +22,7 @@ jobs:
 
       - name: Ping Claude
         run: |
-          claude -p "Respond exactly with: ok" --model haiku # --safe-mode --bare
+          claude -p "Respond exactly with: ok" --model haiku
 
       - name: Keep repo active
         run: |
