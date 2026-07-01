@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      CLAUDE_CODE_SIMPLE: 1
-      CLAUDE_CODE_ATTRIBUTION_HEADER: 0
-      CLAUDE_CODE_DISABLE_TERMINAL_TITLE: 1
+      # CLAUDE_CODE_SIMPLE: 1
+      # CLAUDE_CODE_ATTRIBUTION_HEADER: 0
+      # CLAUDE_CODE_DISABLE_TERMINAL_TITLE: 1
 
     steps:
       - uses: actions/checkout@v4
